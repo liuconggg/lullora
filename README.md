@@ -145,24 +145,6 @@ flutter run -d chrome    # Web (limited — sleep tracking requires native)
 
 ---
 
-## Study Flow
-
-```
-Enrollment ──► Pre-Experiment Questionnaires ──► 3-Night Study ──► Post-Experiment
-                  (Demographics, SWASH, PSQI)      │                  (SASSI, Feedback)
-                                                    │
-                                          ┌─────────┼─────────┐
-                                          │         │         │
-                                       Night 1   Night 2   Night 3
-                                     (randomized conditions)
-                                          │
-                                    SSS ──► Condition ──► Sleep Tracking ──► LSEQ
-                                              │
-                                    ┌─────────┼─────────┐
-                                    │         │         │
-                                 Control   Fixed    Personalized
-                                          Hypnosis   AI Hypnosis
-```
 
 ---
 
