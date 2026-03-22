@@ -15,21 +15,25 @@ Each participant experiences all three conditions across three consecutive night
 ## Key Features
 
 ### Study Protocol
+
 - **3-night randomized crossover design** with automatic condition assignment via Fisher-Yates shuffle
-- **Validated questionnaires**: PSQI, SWASH, SSS, LSEQ, SASSI
+- **Validated questionnaires**: PSQI, Hypnosis Suggestibility, SSS, LSEQ, SASSI
 - **Informed consent and enrollment** workflow
 
 ### AI-Powered Personalization
+
 - **Custom hypnosis script generation** using Together AI (Meta Llama 4 Maverick)
 - **Text-to-speech conversion** via ElevenLabs with selectable voice profiles
 - Personalization based on user-selected character personas and sleep goals
 
 ### Sleep Tracking
+
 - **Objective sleep monitoring** through Asleep SDK (iOS/Android)
 - Real-time session state management with resume support
 - Sleep metrics visualization and cross-condition comparison
 
 ### Post-Study
+
 - **Free play mode** for replaying generated hypnosis sessions
 - **Analytics dashboard** with sleep quality metrics and session history
 - Open feedback collection
@@ -38,17 +42,17 @@ Each participant experiences all three conditions across three consecutive night
 
 ## Tech Stack
 
-| Layer | Technology |
-|-------|------------|
-| Framework | Flutter 3.0+ / Dart 3.0+ |
-| State Management | Riverpod 2.5 + Code Generation |
-| Navigation | go_router |
-| Backend & Auth | Supabase (PostgreSQL + Auth + RLS) |
-| AI Script Generation | Together AI API |
-| Voice Synthesis | ElevenLabs API |
-| Sleep Tracking | Asleep SDK (native iOS/Android) |
-| Audio Playback | just_audio, audioplayers |
-| UI | Material Design 3, google_fonts, flutter_animate |
+| Layer                | Technology                                       |
+| -------------------- | ------------------------------------------------ |
+| Framework            | Flutter 3.0+ / Dart 3.0+                         |
+| State Management     | Riverpod 2.5 + Code Generation                   |
+| Navigation           | go_router                                        |
+| Backend & Auth       | Supabase (PostgreSQL + Auth + RLS)               |
+| AI Script Generation | Together AI API                                  |
+| Voice Synthesis      | ElevenLabs API                                   |
+| Sleep Tracking       | Asleep SDK (native iOS/Android)                  |
+| Audio Playback       | just_audio, audioplayers                         |
+| UI                   | Material Design 3, google_fonts, flutter_animate |
 
 ---
 
@@ -68,7 +72,7 @@ lib/
 │   └── audio_player_service   # Hypnosis audio playback
 ├── screens/            # UI screens organized by study phase
 │   ├── auth/                  # Login & signup
-│   ├── pre_experiment/        # Demographics, SWASH, PSQI, enrollment
+│   ├── pre_experiment/        # Demographics, Hypnosis Suggestibility, PSQI, enrollment
 │   ├── nightly/               # SSS, condition screens, LSEQ
 │   ├── post_experiment/       # SASSI questionnaire
 │   ├── sessions/              # Free play & audio selection
@@ -84,12 +88,12 @@ lib/
 
 The app uses four Supabase (PostgreSQL) tables, all secured with Row-Level Security:
 
-| Table | Purpose |
-|-------|---------|
-| `study_participants` | Enrollment status, condition order, current night progress |
-| `pre_experiment_responses` | Demographics, SWASH scores, PSQI responses |
-| `nightly_sessions` | Per-night condition data, sleep metrics, pre/post assessments |
-| `post_experiment_responses` | SASSI usability scores, open feedback |
+| Table                       | Purpose                                                       |
+| --------------------------- | ------------------------------------------------------------- |
+| `study_participants`        | Enrollment status, condition order, current night progress    |
+| `pre_experiment_responses`  | Demographics, Hypnosis Suggestibility scores, PSQI responses  |
+| `nightly_sessions`          | Per-night condition data, sleep metrics, pre/post assessments |
+| `post_experiment_responses` | SASSI usability scores, open feedback                         |
 
 Full schema documentation is available in [docs/database_schema.md](docs/database_schema.md).
 
@@ -98,6 +102,7 @@ Full schema documentation is available in [docs/database_schema.md](docs/databas
 ## Getting Started
 
 ### Prerequisites
+
 - Flutter SDK >= 3.0.0
 - Dart >= 3.0.0
 - A Supabase project
@@ -106,11 +111,13 @@ Full schema documentation is available in [docs/database_schema.md](docs/databas
 ### Environment Setup
 
 1. Copy the environment template:
+
    ```bash
    cp .env.example .env
    ```
 
 2. Fill in your credentials in `.env`:
+
    ```
    SUPABASE_URL=https://your-project.supabase.co
    SUPABASE_ANON_KEY=your_anon_key_here
@@ -121,11 +128,13 @@ Full schema documentation is available in [docs/database_schema.md](docs/databas
    > **Note**: Never commit `.env` to version control. It is included in `.gitignore`.
 
 3. Install dependencies:
+
    ```bash
    flutter pub get
    ```
 
 4. Run code generation (for Riverpod providers):
+
    ```bash
    dart run build_runner build --delete-conflicting-outputs
    ```
@@ -144,7 +153,6 @@ flutter run -d chrome    # Web (limited — sleep tracking requires native)
 ```
 
 ---
-
 
 ---
 
